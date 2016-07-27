@@ -1,10 +1,10 @@
 # ABCs_of_RBSs_Python_version
-I write Python versions of MATLAB codes appearing in "The ABCs of RBCs" by George McCandless.
+I write Python versions of MATLAB codes appearing in "The ABCs of RBCs" by George McCandless. The structure of the program may be slightly changed from the original one, but I make sure that almost the same result is obtained.
 
 I believe my Python codes are helpful for those who do not have an access to MATLAB.
 
 
-Four (personal) Objectives:
+Four (Personal) Objectives:
 
 1. To improve my skills of numerical calculations/simulations. 
 
