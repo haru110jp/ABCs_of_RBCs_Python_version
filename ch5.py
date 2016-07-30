@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Set initial conditions.
-grids = 40 # The number of grids
+grids = 120 # The number of grids
 vlast1 = 20 * np.ones(grids)
 vlast2 = 20 * np.ones(grids)
 k0 = np.linspace(0.4, 16, grids)
@@ -51,6 +51,7 @@ plt.plot(k0, vlast2)
 # Begin the recursive calculations.
 
 for t in range(numits):
+    iteration = t + 1
     for i in range(grids): # Which value of k we focus on?
         valfun_cands1 = np.ndarray(grids)
         valfun_cands2 = np.ndarray(grids)
@@ -74,16 +75,16 @@ for t in range(numits):
         ktp12 = k0[val_max2_k]
         v2[i] = valfun_cands2[val_max2_k]
         kt12[i] = ktp12
-    if t/50 == round(t/50): # Change 50 suitably when numits != 250
+    if iteration/50 == round(iteration/50): # Change 50 suitably when numits != 250
         plt.subplot(2, 1, 1)
-        plt.plot(k0, v1)
-        plt.plot(k0, v2)
+        plt.plot(k0, v1, "b")
+        plt.plot(k0, v2, "r")
     vlast1 = v1
     vlast2 = v2
 
 plt.subplot(2, 1, 2)
-plt.plot(k0, kt11)
-plt.plot(k0, kt12)
-plt.plot(k0, k0) # 45 degrees line
+plt.plot(k0, kt11, "b")
+plt.plot(k0, kt12, "r")
+plt.plot(k0, k0, "k") # 45 degrees line
 
 plt.show()
