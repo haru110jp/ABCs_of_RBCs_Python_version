@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Set initial conditions.
-grids = 200 # The number of grids
+grids = 100 # The number of grids
 vlast = np.zeros(grids)
 k0 = np.linspace(0.06, 6, grids)
 beta = 0.98
@@ -43,8 +43,8 @@ for t in range(numits):
         valfun_cands = np.ndarray(grids)
         kt = k0[i]
         for j in range(grids): # Find k which maximizes the utility.
-            next_t = k0[j]
-            valfun_cands[j] = valfun(next_t)
+            next_k = k0[j]
+            valfun_cands[j] = valfun(next_k)
         val_max_k = np.argmax(valfun_cands)
         ktp1 = k0[val_max_k]
         v[i] = valfun_cands[val_max_k]
